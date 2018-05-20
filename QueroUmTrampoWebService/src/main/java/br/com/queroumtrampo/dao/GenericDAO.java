@@ -8,16 +8,17 @@ import java.util.Map.Entry;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
+
+import br.com.queroumtrampo.util.JPAUtil;
 
 public abstract class GenericDAO<T> implements Serializable {
 	/**
 	 * Número serial.
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("tcc");
+	private static final EntityManagerFactory emf = JPAUtil.createEntityManagerFactory();
 
 	private EntityManager em;
 	private Class<T> entityClass;
